@@ -1,79 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-function hello() {
-    alert('Hello IT-Kamasutra')
-}
+import Accordion from "./components/Accordion/Accordion";
+import {Rating} from "./components/Rating/Rating";
 
 
 function App() {
     console.log('App rendering')
     return (
         <div>
-            <AppTitle/>
-            <Rating/>
-            <Accordion/>
-            <Rating/>
+            <PageTitle title={'This is APP component'}/>
+            <PageTitle title={'My friends'}/>
+            Article 1
+            <Rating value={3}/>
+            <Accordion titleValue={'Menu'} collapsed={true}/>
+            <Accordion titleValue={'Users'}collapsed={false}/>
+            Article 2
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
+            <Rating value={4}/>
+            <Rating value={5}/>
         </div>
     );
 }
 
-function AppTitle() {
-    console.log('AppTitle rendering')
-    return <>
-        This is APP component
-    </>
+type PageTitlePropsType = {
+    title: string,
 }
 
-function Rating() {
-    console.log('Rating rendering')
-    return (
-        <>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-        </>
-    )
-}
-
-function Accordion() {
-    console.log('Accordion rendering')
-    return (
-        <div>
-            <AccordionTiltle/>
-            <AccordionBody/>
-        </div>
-    )
-}
-
-function AccordionTiltle() {
-    console.log('AccordionTiltle rendering')
-    return (
-        <>
-            <h3>Меню</h3>
-        </>
-    )
-}
-
-function AccordionBody() {
-    console.log('AccordionBody rendering')
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    )
-}
-
-function Star() {
-    console.log('Star rendering')
-    return (
-        <div>star</div>
-    )
+function PageTitle(props: PageTitlePropsType) {
+    console.log('PageTitle rendering')
+    return <h1>{props.title}</h1>
 }
 
 export default App;
